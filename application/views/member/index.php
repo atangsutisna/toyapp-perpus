@@ -13,7 +13,7 @@
             <?= show_bootstrap_alert() ?>
             <div class="box">
                 <div class="box-body">
-                    <p><a href="<?= site_url('member/reg_form') ?>" class="btn btn-primary">Member Baru</a></p>
+                    <p><a href="<?= site_url('member/reg_form') ?>" class="btn btn-primary">Anggota Baru</a></p>
                     <div class="table-responsive">
                         <table class="table table-striped" id="table_member" cellspacing="0" width="100%">
                             <thead>
