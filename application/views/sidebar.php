@@ -24,7 +24,7 @@
             </a>
         </li>
         <li>
-            <a href="<?= site_url('members') ?>">
+            <a href="<?= site_url('member') ?>">
                 <i class="fa fa-user"></i><span>Anggota</span>
             </a>
         </li>
