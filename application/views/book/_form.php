@@ -19,6 +19,7 @@
                 <form role="form" method="post" action="<?= site_url($form_action) ?>" class="form-horizontal">   
                     <div class="box-body">
                         <?= show_bootstrap_alert() ?>
+                        <?= form_hidden('id', isset($book) ? $book->id : NULL) ?>
                         <div class="form-group">
                             <label class="col-lg-3 col-sm-3 control-label">Judul</label>
                             <div class="col-lg-3 col-sm-3">
@@ -44,7 +45,7 @@
                             </div>
                             <div class="col-3 col-lg-3 col-sm-3">
                                 <input type="number" name="thn_terbit" 
-                                    class="form-control" value="<?= set_value('thn_terbit', isset($book) ? $book->tahun_terbit : '') ?>"/>
+                                    class="form-control" value="<?= set_value('thn_terbit', isset($book) ? $book->thn_terbit : '') ?>"/>
                                 <?= form_error('thn_terbit') ?>
                             </div>
                         </div>

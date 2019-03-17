@@ -46,4 +46,17 @@ class Book_model extends MY_Model
         return $this->db->count_all_results();
     }
     
+    public function find_one($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get($this->table_name);
+
+        return $query->row();
+    }
+
+    public function modify($id, $book) 
+    {
+        $this->db->where('id', $id);
+        $this->db->update($this->table_name, $book);
+    }
 }
