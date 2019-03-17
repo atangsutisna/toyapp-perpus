@@ -9,13 +9,14 @@
     </ol>
 </section>
 <div class="content">
+    <?= show_bootstrap_alert() ?>
     <div class="row">
         <div class="col-lg-12 col-sm-12 col-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">Informasi Umum</h3>
                 </div>
-                <form role="form" method="post" action="<?= site_url('user/do_update') ?>" class="form-horizontal">   
+                <form role="form" method="post" action="<?= site_url('profile/do_update') ?>" class="form-horizontal">
                     <div class="box-body">
                         <div class="form-group">
                             <label class="col-lg-3 col-sm-3 control-label">Username</label>
@@ -27,9 +28,9 @@
                         <div class="form-group">
                             <label class="col-lg-3 col-sm-3 control-label">Nama Lengkap</label>
                             <div class="col-5 col-lg-5 col-sm-5">
-                                <input type="text" name="fullname" 
-                                    class="form-control" value="<?= set_value('fullname', isset($user->nama) ? $user->nama : '') ?>"/>
-                                <?= form_error('fullname') ?>
+                                <input type="text" name="nama" 
+                                    class="form-control" value="<?= set_value('nama', isset($user->nama) ? $user->nama : '') ?>"/>
+                                <?= form_error('nama') ?>
                             </div>
                         </div>
                         <div class="form-group">
@@ -41,7 +42,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-lg-3 col-sm-3 control-label">No. Telepon</label>
+                            <label class="col-lg-3 col-sm-3 control-label">No. Hp</label>
                             <div class="col-lg-3 col-sm-3">
                                 <input type="text" name="mobile_phone" 
                                     class="form-control" value="<?= set_value('mobile_phone', isset($user->mobile_phone) ? $user->mobile_phone : '') ?>"/>
@@ -51,7 +52,9 @@
                         <div class="form-group">
                             <label class="col-lg-3 col-sm-3 control-label">Level</label>
                             <div class="col-4 col-lg-4 col-sm-4">
-                                <?= ucfirst($user->level) ?>
+                                <p class="form-control-static">
+                                    <?= ucfirst($user->level) ?>
+                                </p>
                             </div>
                         </div>
                         <div class="form-group">
