@@ -44,13 +44,17 @@ class Member_model extends MY_Model
         return $this->db->count_all_results();
     }
 
-    public function find_one($id)
+    public function find_one($nim)
     {
-        $this->db->where('nim', $id);
+        $this->db->where('nim', $nim);
         $query = $this->db->get($this->table_name);
 
         return $query->row();
     }
 
-    
+    public function modify($nim, $member)
+    {
+        $this->db->where('nim', $nim);
+        $this->db->update($this->table_name, $member);
+    }
 }

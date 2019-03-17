@@ -14,10 +14,11 @@
         <div class="col-lg-12 col-sm-12 col-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Member Baru</h3>
+                    <h3 class="box-title">Member</h3>
                 </div>
-                <form role="form" method="post" action="<?= site_url('user/do_reg') ?>" class="form-horizontal">   
+                <form role="form" method="post" action="<?= site_url($form_action) ?>" class="form-horizontal">   
                     <div class="box-body">
+                        <?= show_bootstrap_alert() ?>
                         <div class="form-group">
                             <label class="col-lg-3 col-sm-3 control-label">NIM</label>
                             <div class="col-lg-3 col-sm-3">
@@ -43,7 +44,7 @@
                             </div>
                             <div class="col-3 col-lg-3 col-sm-3">
                                 <input type="date" name="tgl_lahir" 
-                                    class="form-control" value="<?= set_value('tgl_lahir') ?>"/>
+                                    class="form-control" value="<?= set_value('tgl_lahir', isset($member) ? $member->tgl_lahir : '') ?>"/>
                                 <?= form_error('tgl_lahir') ?>
                             </div>
                         </div>
@@ -73,7 +74,7 @@
                         <div class="form-group">
                             <div class="col-lg-offset-3 col-sm-offset-3" style="margin-left: 26.5%;">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
-                                <?= anchor('member', 'Batal', ['class' => 'btn btn-default']) ?>
+                                <?= anchor('member', 'Kembali', ['class' => 'btn btn-default']) ?>
                             </div>
                         </div>
                     </div>
