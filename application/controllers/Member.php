@@ -19,6 +19,45 @@ class Member extends Admin_Controller
         $this->load->template(self::DIR_VIEW.'/index', $params);
     }
 
+    public function reg_form()
+    {
+        $params = [
+            'form_action' => 'member/do_reg',
+        ];
+        $this->load->template(self::DIR_VIEW. '/_form', $params);
+    }
+
+    public function do_reg()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+        $this->form_validation->set_rules('nim', 'NIM', 'required');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+        $this->form_validation->set_rules('tgl_lahir', 'Tgl Lahir', 'required');
+        $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
+        $this->form_validation->set_rules('prodi', 'Prodi', 'required');
+        $this->form_validation->set_rules('thn_masuk', 'Tahun Masuk', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->reg_form();
+        } else {
+            $member = [
+                'nim' => $this->input->post('nim'),
+                'nama' => $this->input->post('nama'),
+                'tempat_lahir' => $this->input->post('tempat_lahir'),
+                'tgl_lahir' => $this->input->post('tgl_lahir'),
+                'jk' => $this->input->post('jk'),
+                'prodi' => $this->input->post('prodi'),
+                'thn_masuk' => $this->input->post('thn_masuk'),
+            ];
+            $this->member->insert($member);
+            $this->session->set_flashdata('info', '1 data member telah ditambahkan');
+            redirect('member');
+        }
+    }
+
     public function view($id)
     {
         $member = $this->member->find_one($id);
