@@ -28,7 +28,8 @@ $('document').ready(function(){
             { 
                 "orderable": false,
                 "render": function(data, type, row, meta) {
-                    return `${row.tempat_lahir}/${row.tgl_lahir}`;
+                    var tgl_lahir = moment(row.tgl_lahir).format('ll');
+                    return `${row.tempat_lahir}<br/><small>${tgl_lahir}</small>`;
                 }
             },
             { 
