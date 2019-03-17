@@ -43,9 +43,9 @@
                                 <?= form_error('penerbit') ?>
                             </div>
                             <div class="col-3 col-lg-3 col-sm-3">
-                                <input type="number" name="tahun_terbit" 
-                                    class="form-control" value="<?= set_value('tahun_terbit', isset($book) ? $book->tahun_terbit : '') ?>"/>
-                                <?= form_error('tahun_terbit') ?>
+                                <input type="number" name="thn_terbit" 
+                                    class="form-control" value="<?= set_value('thn_terbit', isset($book) ? $book->tahun_terbit : '') ?>"/>
+                                <?= form_error('thn_terbit') ?>
                             </div>
                         </div>
                         <div class="form-group">
