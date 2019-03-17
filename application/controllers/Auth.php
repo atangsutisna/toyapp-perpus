@@ -38,10 +38,9 @@ class Auth extends CI_Controller {
         $password_verified = password_verify($password, $hashed_pass);
 
         if ($password_verified) {
-            $this->session->set_userdata('uid', $user->uid);
-            $this->session->set_userdata('fullname', $user->fullname);
-            $this->session->set_userdata('role', $user->role);
-            $this->session->set_userdata('id_kegiatan', $user->id_kegiatan);
+            $this->session->set_userdata('id', $user->id);
+            $this->session->set_userdata('name', $user->nama);
+            $this->session->set_userdata('level', $user->level);
             return redirect('home');                   
         } else {
             $this->session->set_flashdata('danger','Username tidak ditemukan atau password tidak cocok');
