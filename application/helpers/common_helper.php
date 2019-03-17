@@ -129,7 +129,7 @@ if (! function_exists('get_logged_fullname'))
     function get_logged_fullname()
     {
         $CI = & get_instance();
-        return $CI->session->userdata('fullname');
+        return $CI->session->userdata('name');
     }
     
 }
@@ -142,27 +142,27 @@ if (! function_exists('get_logged_role_name'))
     function get_logged_role_name()
     {
         $CI = & get_instance();
-        return $CI->session->userdata('role');
+        return $CI->session->userdata('level');
     }
     
 }
 
-if (! function_exists('is_operator')) 
+if (! function_exists('is_user')) 
 {
-    function is_operator()
+    function is_user()
     {
         $CI = & get_instance();
-        return $CI->session->userdata('role') == 'operator';
+        return $CI->session->userdata('level') == 'user';
     }
     
 }
 
-if (! function_exists('is_administrator')) 
+if (! function_exists('is_admin')) 
 {
-    function is_administrator()
+    function is_admin()
     {
         $CI = & get_instance();
-        return $CI->session->userdata('role') == 'administrator';
+        return $CI->session->userdata('level') == 'admin';
     }
     
 }
@@ -181,65 +181,6 @@ if (! function_exists('format_rupiah'))
         $money = number_format($price,'0',',','.');
         return "Rp. {$money}";
     }    
-}
-
-if (! function_exists('penyebut')) 
-{
-    /**
-     * 
-     * FUNGSI TERBILANG OLEH : MALASNGODING.COM
-     * WEBSITE : WWW.MALASNGODING.COM
-     * AUTHOR : https://www.malasngoding.com/author/admin    
-     */
-    function penyebut($nilai) 
-    {
-        $nilai = abs($nilai);
-        $huruf = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
-        $temp = "";
-        if ($nilai < 12) {
-            $temp = " ". $huruf[$nilai];
-        } else if ($nilai <20) {
-            $temp = penyebut($nilai - 10). " belas";
-        } else if ($nilai < 100) {
-            $temp = penyebut($nilai/10)." puluh". penyebut($nilai % 10);
-        } else if ($nilai < 200) {
-            $temp = " seratus" . penyebut($nilai - 100);
-        } else if ($nilai < 1000) {
-            $temp = penyebut($nilai/100) . " ratus" . penyebut($nilai % 100);
-        } else if ($nilai < 2000) {
-            $temp = " seribu" . penyebut($nilai - 1000);
-        } else if ($nilai < 1000000) {
-            $temp = penyebut($nilai/1000) . " ribu" . penyebut($nilai % 1000);
-        } else if ($nilai < 1000000000) {
-            $temp = penyebut($nilai/1000000) . " juta" . penyebut($nilai % 1000000);
-        } else if ($nilai < 1000000000000) {
-            $temp = penyebut($nilai/1000000000) . " milyar" . penyebut(fmod($nilai,1000000000));
-        } else if ($nilai < 1000000000000000) {
-            $temp = penyebut($nilai/1000000000000) . " trilyun" . penyebut(fmod($nilai,1000000000000));
-        }     
-        return $temp;
-    }
-
-}
-
-if (! function_exists('terbilang')) 
-{
-    /**
-     * 
-     * FUNGSI TERBILANG OLEH : MALASNGODING.COM
-     * WEBSITE : WWW.MALASNGODING.COM
-     * AUTHOR : https://www.malasngoding.com/author/admin    
-     */
-    function terbilang($nilai) 
-    {
-        if($nilai<0) {
-            $hasil = "minus ". trim(penyebut($nilai));
-        } else {
-            $hasil = trim(penyebut($nilai));
-        }     		
-        return $hasil;
-    }
-    
 }
 
 if (! function_exists('format_date_to')) 
