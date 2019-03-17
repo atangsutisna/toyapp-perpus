@@ -68,3 +68,38 @@
         </div>
     </div>
 </div>
+<div class="content">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Security</h3>
+                </div>            
+                <form role="form" method="post" action="<?= site_url('profile/do_update_sec') ?>" class="form-horizontal">   
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">Password</label>
+                            <div class="col-lg-3 col-sm-3">
+                                <?= form_hidden('id', $user->id) ?>
+                                <input type="password" name="password" class="form-control"/>
+                                <?= form_error('password') ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-3 col-sm-3 control-label">Ketika Lagi Password</label>
+                            <div class="col-lg-3 col-sm-3">
+                                <input type="password" name="retype_password" class="form-control"/>
+                                <?= form_error('retype_password') ?>
+                            </div>
+                        </div>   
+                        <div class="form-group">
+                            <div class="col-lg-offset-3 col-sm-offset-3" style="margin-left: 26.5%;">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

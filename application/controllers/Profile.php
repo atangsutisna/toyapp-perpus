@@ -52,11 +52,38 @@ class Profile extends Admin_Controller {
                 'level' => $this->input->post('level'),
                 'modification_time' => date('Y-m-d H:i:s')
             ];
-            
+
             $this->user->modify(['id' => $id], $user);
             $this->session->set_flashdata('info', 'Data anda telah diperbaharui');
             redirect('profile');
         }
     }    
+
+    public function do_update_sec()
+    {
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
+
+        $this->form_validation->set_rules('password', 'Password', 'required');
+        $this->form_validation->set_rules('retype_password', 'Retype password', 'required|matches[password]'); 
+        $id = $this->input->post('id');               
+        if ($this->form_validation->run() == FALSE) {
+            $user = $this->user->find_one($id);
+            $params = array(
+                'user' => $user,
+            );
+            $this->load->template(self::DIR_VIEW.'/index', $params);
+        } else {
+            $raw_password = $this->input->post('password');
+            $hashed_password = password_hash($raw_password, PASSWORD_DEFAULT);
+            $user = [
+                'password' => $hashed_password
+            ];
+            $this->user->modify(['id' => $id], $user);
+            $this->session->set_flashdata('info', 'Password anda telah berhail diperbaharui');
+            redirect('profile');
+        }   
+    }
+
 
 }
