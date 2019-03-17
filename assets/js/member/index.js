@@ -38,8 +38,7 @@ $('document').ready(function(){
                 "render": function(data, type, row, meta) {
                     var nameHtml = `[
                         <a  href="${app_config.base_uri}/member/view/${data}"
-                            class="btn-edit" style=\"cursor:pointer\">Edit</a> |
-                        <a data-id=\"${data}\" class="btn-delete" style=\"cursor:pointer\">Delete</a>]`;
+                            class="btn-edit" style=\"cursor:pointer\">Edit</a>]`;
                     return nameHtml;
                 } 
             }

@@ -107,4 +107,5 @@ class Member extends Admin_Controller
             redirect('member/view/'.$nim);
         }
     }    
+
 }
