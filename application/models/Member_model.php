@@ -43,5 +43,14 @@ class Member_model extends MY_Model
         $this->db->from($this->table_name);
         return $this->db->count_all_results();
     }
+
+    public function find_one($id)
+    {
+        $this->db->where('nim', $id);
+        $query = $this->db->get($this->table_name);
+
+        return $query->row();
+    }
+
     
 }
