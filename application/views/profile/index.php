@@ -13,7 +13,7 @@
         <div class="col-lg-12 col-sm-12 col-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Profil</h3>
+                    <h3 class="box-title">Informasi Umum</h3>
                 </div>
                 <form role="form" method="post" action="<?= site_url('user/do_update') ?>" class="form-horizontal">   
                     <div class="box-body">
