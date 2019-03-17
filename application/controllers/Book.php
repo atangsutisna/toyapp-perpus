@@ -19,4 +19,13 @@ class Book extends Admin_Controller
         $this->load->template(self::DIR_VIEW.'/index', $params);
     }
 
+    public function reg_form()
+    {
+        $params = [
+            'form_action' => site_url('book/do_reg')
+        ];
+        $this->load->template(self::DIR_VIEW. '/_form', $params);
+    }
+
+
 }
