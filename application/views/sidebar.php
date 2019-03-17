@@ -34,7 +34,7 @@
             </a>
         </li>
         <li>
-            <a href="<?= site_url('book') ?>">
+            <a href="<?= site_url('transaction') ?>">
                 <i class="fa fa-sticky-note-o"></i><span>Transaksi</span>
             </a>
         </li>
