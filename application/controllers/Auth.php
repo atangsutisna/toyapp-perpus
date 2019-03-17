@@ -51,10 +51,9 @@ class Auth extends CI_Controller {
 
     public function end_session()
     {
-        $this->session->unset_userdata('uid');
-        $this->session->unset_userdata('fullname');
-        $this->session->unset_userdata('role');
-        $this->session->unset_userdata('id_kegiatan');
+        $this->session->unset_userdata('id');
+        $this->session->unset_userdata('name');
+        $this->session->unset_userdata('level');
         redirect('auth');        
     }
 
